@@ -8,13 +8,12 @@ public class CameraSwitcher : MonoBehaviour
 
     void Start()
     {
-        // Asegúrate de que solo una cámara esté activa al inicio
-        ActivateCamera(currentCameraIndex);
+        ActivateCamera(currentCameraIndex); // Activar la cámara inicial
     }
 
     void Update()
     {
-        // Detectar si se presiona la tecla "C"
+        // Detecta si se presiona la tecla "C"
         if (Keyboard.current.cKey.wasPressedThisFrame)
         {
             SwitchCamera();
@@ -23,13 +22,13 @@ public class CameraSwitcher : MonoBehaviour
 
     void SwitchCamera()
     {
-        // Desactivar la cámara actual
+        // Desactiva la cámara actual
         cameras[currentCameraIndex].enabled = false;
 
-        // Cambiar al siguiente índice (ciclo circular)
+        // Cambia al siguiente índice (ciclo circular)
         currentCameraIndex = (currentCameraIndex + 1) % cameras.Length;
 
-        // Activar la nueva cámara
+        // Activa la nueva cámara
         ActivateCamera(currentCameraIndex);
     }
 
